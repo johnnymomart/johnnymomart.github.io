@@ -19,7 +19,7 @@ var data = [
 ];
 
 async function load() {
-    let baseURI = 'http://statsapi.mlb.com/api/v1/people/{playerId}/stats?stats=season&group=hitting&season=2025';
+    let baseURI = 'https://statsapi.mlb.com/api/v1/people/{playerId}/stats?stats=season&group=hitting&season=2025';
 
     let rankedCompetitors = [];
     
