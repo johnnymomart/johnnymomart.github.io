@@ -3,6 +3,8 @@
 :root {
     --opacity: 1;
     --circle-background-color: 229 231 235;
+    --tablePadding: .9rem 1.25rem;
+    --tableWidth: 60%;
 }
 
 .container {
@@ -13,7 +15,7 @@
 }
 
 table {
-    width: 60%; 
+    width: var(--tableWidth);
     border-collapse: collapse;
     border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -22,7 +24,7 @@ table {
 }
 
 td , th {
-    padding: 15px 20px;
+    padding: var(--tablePadding);
     text-align: center;
 }
 th {
@@ -76,6 +78,15 @@ tr:nth-child(even) {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+    margin-top: 20%;
+}
+
+#version {
+    position: absolute;
+    margin-top: 25%;
+    font-family: monospace;
+    font-size: 12px;
+    font-style: italic;
 }
 
 @keyframes spin {
@@ -87,6 +98,38 @@ tr:nth-child(even) {
     display: none;
 }
 
+.hide-version {
+    display: none;
+}
+
 td.homeRuns {
     font-weight: 600;
+}
+
+@media (min-width: 320px) { 
+    :root {
+        --tablePadding: .4rem;
+        --tableWidth: 40%;
+    }
+}
+
+@media (min-width: 400px) { 
+    :root {
+        --tablePadding: .8rem;
+        --tableWidth: 60%;
+    }
+}
+
+@media (min-width: 768px) { 
+    :root {
+        --tablePadding: .9rem 1.25rem;
+        --tableWidth: 80%;
+    }
+}
+
+@media (min-width: 1200px) { 
+    :root {
+        --tablePadding: .9rem 1.25rem;
+        --tableWidth: 60%;
+    }
 }
