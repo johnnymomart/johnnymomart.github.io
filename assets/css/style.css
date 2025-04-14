@@ -115,7 +115,7 @@ td.homeRuns {
 
 @media (min-width: 400px) { 
     :root {
-        --tablePadding: 1rem;
+        --tablePadding: 1.2rem;
         --tableWidth: 60%;
     }
 }
