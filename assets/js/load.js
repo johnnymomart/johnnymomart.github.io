@@ -1,25 +1,25 @@
 var data = [
-    { id: 'Bender', playerId: 592450, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Berg', playerId: 660271, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Lambo', playerId: 670541, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'JMart', playerId: 665742, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Knoll', playerId: 656941, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Tone Loc', playerId: 623993, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'SB', playerId: 624413, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Clegg', playerId: 667670, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'WB', playerId: 621566, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'ConBud', playerId: 542303, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Cheddar', playerId: 663728, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'MacFace', playerId: 646240, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'BNice', playerId: 665487, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'OB', playerId: 665489, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Machete', playerId: 677951, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Dirt', playerId: 608070, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"},
-    { id: 'Mone', playerId: 669394, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]"}
+    { id: 'Bender', playerId: 592450, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Berg', playerId: 660271, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Lambo', playerId: 670541, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'JMart', playerId: 665742, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Knoll', playerId: 656941, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Tone Loc', playerId: 623993, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'SB', playerId: 624413, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Clegg', playerId: 667670, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'WB', playerId: 621566, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'ConBud', playerId: 542303, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Cheddar', playerId: 663728, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'MacFace', playerId: 646240, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'BNice', playerId: 665487, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'OB', playerId: 665489, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Machete', playerId: 677951, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Dirt', playerId: 608070, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"},
+    { id: 'Mone', playerId: 669394, playerName: "[playerName]", homeRuns: "[homeRuns]", rank: "[rank]", maxDistance: "[maxDistance]"}
 ];
 
 async function load() {
-    let baseURI = 'https://statsapi.mlb.com/api/v1/people/{playerId}/stats?stats=season&group=hitting&season=2025';
+    let baseURI = 'https://statsapi.mlb.com/api/v1/people/{playerId}?hydrate=stats(group=[hitting],type=[season,metricLog],metrics=[distance],season=2025)'
     let rankedCompetitors = [];
     
     for (let i = 0; i < data.length; i++) {
@@ -31,10 +31,11 @@ async function load() {
             const apiPlayerData = await apiResponse.json();
             if (!apiResponse.ok) { throw new Error('HTTP error! status: ${response.status}'); }
 
-            if(apiPlayerData.stats) {
+            if(apiPlayerData) {
                 try {
-                    competitor.playerName = apiPlayerData.stats[0].splits[0].player.fullName;
-                    competitor.homeRuns = apiPlayerData.stats[0].splits[0].stat.homeRuns;
+                    competitor.playerName = apiPlayerData.people[0].fullName;
+                    competitor.homeRuns = apiPlayerData.people[0].stats[0].splits[0].stat.homeRuns;
+                    competitor.maxDistance = apiPlayerData.people[0].stats[1].splits[0].stat.metric.value;
                 } catch(error) {
                     console.log(error);
                     competitor.homeRuns = 0;
@@ -48,7 +49,12 @@ async function load() {
     }
 
     rankedCompetitors.sort((a, b) => {
-        return (a.homeRuns < b.homeRuns) ? 1 : (a.homeRuns > b.homeRuns) ? -1 : 0;
+        if(a.homeRuns > b.homeRuns) { return -1; }
+        if(a.homeRuns < b.homeRuns) { return 1; }
+        if(a.homeRuns === b.homeRuns) {
+            if(a.maxDistance > b.maxDistance) { return -1; }
+            if(a.maxDistance < b.maxDistance) { return 1; }
+        }
     });
 
     const tbody = document.getElementById("body");
@@ -62,7 +68,8 @@ async function load() {
             competitor.rank = i + 1;
         }
         if(i != 0) {
-            if(rankedCompetitors[i].homeRuns == rankedCompetitors[i-1].homeRuns) {
+            if(rankedCompetitors[i].homeRuns == rankedCompetitors[i-1].homeRuns &&
+                rankedCompetitors[i].maxDistance == rankedCompetitors[i-1].maxDistance) {
                 competitor.rank = rankedCompetitors[i-1].rank;
             }
         } else {
@@ -73,7 +80,8 @@ async function load() {
         let rowInnerHTML = '<td>' + competitor.rank + '</td><td>' 
             + competitor.id + '</td><td>'
             + competitor.playerName + '</td><td class="homeRuns">' 
-            + competitor.homeRuns + '</td>';
+            + competitor.homeRuns + '</td><td>'
+            + competitor.maxDistance + '</td>';
         row.innerHTML = rowInnerHTML;
         tbody.appendChild(row);
     }
