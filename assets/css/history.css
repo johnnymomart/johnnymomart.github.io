@@ -116,14 +116,14 @@ td.homeRuns {
 
 @media (min-width: 320px) { 
     :root {
-        --tablePadding: .2rem;
+        --tablePadding: .1rem;
         --tableWidth: 40%;
     }
 }
 
 @media (min-width: 400px) { 
     :root {
-        --tablePadding: .5rem;
+        --tablePadding: .2rem;
         --tableWidth: 60%;
     }
 }
