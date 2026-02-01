@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+
+:root {
+    --opacity: 1;
+    --circle-background-color: 229 231 235;
+    --tablePadding: .9rem 1.25rem;
+    --tableWidth: 60%;
+    --versionMarginTop: 35%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+table {
+    width: var(--tableWidth);
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 12px 12px 12px 12px;
+    overflow: hidden;
+    background: transparent;
+}
+
+td, th {
+    padding: var(--tablePadding);
+    text-align: center;
+    background: none;
+}
+
+th {
+    background-color: navy;
+    color: #fafafa;
+    font-family: 'Open Sans',Sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tr {
+    width: 100%;
+    background-color: #fafafa;
+    font-family: 'Montserrat', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgb(var(--circle-background-color));
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgb(var(--circle-background-color));
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgb(var(--circle-background-color));
+    }
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: rgb(var(--circle-background-color));
+}
+
+.circle.active {
+    animation: pulse 2s infinite;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid navy;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin-top: 20%;
+}
+
+#version {
+    position: absolute;
+    margin-top: var(--versionMarginTop);
+    font-family: monospace;
+    font-size: 12px;
+    font-style: italic;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hide-loader {
+    display: none;
+}
+
+.hide-version {
+    display: none;
+}
+
+td.homeRuns {
+    font-weight: 600;
+}
+
+@media (min-width: 320px) { 
+    :root {
+        --tablePadding: .2rem;
+        --tableWidth: 40%;
+    }
+}
+
+@media (min-width: 400px) { 
+    :root {
+        --tablePadding: .5rem;
+        --tableWidth: 60%;
+    }
+}
+
+@media (min-width: 768px) { 
+    :root {
+        --tablePadding: .9rem 1.25rem;
+        --tableWidth: 80%;
+        --versionMarginTop: 28%;
+    }
+}
+
+@media (min-width: 1200px) { 
+    :root {
+        --tablePadding: .9rem 1.25rem;
+        --tableWidth: 60%;
+        --versionMarginTop: 25%;
+    }
+}
