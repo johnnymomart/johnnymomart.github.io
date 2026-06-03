@@ -4,7 +4,7 @@
     --opacity: 1;
     --circle-background-color: 229 231 235;
     --tablePadding: .9rem 1.25rem;
-    --tableWidth: 60%;
+    --tableWidth: 100%;
     --versionMarginTop: 35%;
 }
 
@@ -14,12 +14,6 @@ body {
 
 .container {
     margin-top: 1%;
-    margin-left: 25%;
-    margin-right: 25%;
-    
-    /*margin-top: 25px;
-    margin-bottom: 25px;*/
-
     justify-content: center;
     width: var(--tableWidth);
     border-collapse: collapse;
@@ -84,21 +78,18 @@ body {
 @media (min-width: 320px) { 
     :root {
         --tablePadding: .2rem;
-        --tableWidth: 40%;
     }
 }
 
 @media (min-width: 400px) { 
     :root {
         --tablePadding: .5rem;
-        --tableWidth: 60%;
     }
 }
 
 @media (min-width: 768px) { 
     :root {
         --tablePadding: .9rem 1.25rem;
-        --tableWidth: 80%;
         --versionMarginTop: 28%;
     }
 }
@@ -108,5 +99,9 @@ body {
         --tablePadding: .9rem 1.25rem;
         --tableWidth: 50%;
         --versionMarginTop: 25%;
+    }
+    .container {
+        margin-left: 25%;
+        margin-right: 25%;
     }
 }
