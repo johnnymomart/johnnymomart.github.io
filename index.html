@@ -5,182 +5,219 @@
         <link rel="icon" type="image/x-icon" href="assets/images/axe.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="assets/css/history.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/fifa.css">
     </head>
     <body>
         <div class="container">
-            <table>
-                <tr>
-                    <th></th>
-                    <th>2021</th>
-                    <th>2022</th>
-                    <th>2023</th>
-                    <th>2024</th>
-                    <th>2025</th>
-                </tr>
-                <!--1st-->
-                <tr>
-                    <td>1</td>
-                    <td><b>Tone Loc</b></td>
-                    <td><b>Bender</b></td>
-                    <td><b>Berg</b></td>
-                    <td><b>Machete</b></td>
-                    <td><b>Clegg</b></td>
-                </tr>
-                <!--2nd-->
-                <tr>
-                    <td>2</td>
-                    <td>MacFace</td>
-                    <td>BNice</td>
-                    <td>OB</td>
-                    <td>OB</td>
-                    <td>Dirt</td>
-                </tr>
-                <!--3rd-->
-                <tr>
-                    <td>3</td>
-                    <td>Machete</td>
-                    <td>Berg</td>
-                    <td>Tone Loc</td>
-                    <td>BNice</td>
-                    <td>MacFace</td>
-                </tr>
-                <!--4th-->
-                <tr>
-                    <td>4</td>
-                    <td>Clegg</td>
-                    <td>OB</td>
-                    <td>Machete</td>
-                    <td>MacFace</td>
-                    <td>JMart</td>
-                </tr>
-                <!--5th-->
-                <tr>
-                    <td>5</td>
-                    <td>Berg</td>
-                    <td>JMart</td>
-                    <td>Bender</td>
-                    <td>Cheddar</td>
-                    <td>ConBud</td>
-                </tr>
-                <!--6th-->
-                <tr>
-                    <td>6</td>
-                    <td>WB</td>
-                    <td>Tone Loc</td>
-                    <td>MacFace</td>
-                    <td>ConBud</td>
-                    <td>Tone Loc</td>
-                </tr>
-                <!--7th-->
-                <tr>
-                    <td>7</td>
-                    <td>Cheddar</td>
-                    <td>WB</td>
-                    <td>SB</td>
-                    <td>WB</td>
-                    <td>OB</td>
-                </tr>
-                <!--8th-->
-                <tr>
-                    <td>8</td>
-                    <td>Lambo</td>
-                    <td>Knoll</td>
-                    <td>Knoll</td>
-                    <td>Clegg</td>
-                    <td>Mone</td>
-                </tr>
-                <!--9th-->
-                <tr>
-                    <td>9</td>
-                    <td>ConBud</td>
-                    <td>MacFace</td>
-                    <td>ConBud</td>
-                    <td>SB</td>
-                    <td>Cheddar</td>
-                </tr>
-                <!--10th-->
-                <tr>
-                    <td>10</td>
-                    <td>BNice</td>
-                    <td>Lambo</td>
-                    <td>Lambo</td>
-                    <td>Tone Loc</td>
-                    <td>Machete</td>
-                </tr>
-                <!--11th-->
-                <tr>
-                    <td>11</td>
-                    <td></td>
-                    <td>Machete</td>
-                    <td>Clegg</td>
-                    <td>Knoll</td>
-                    <td>BNice</td>
-                </tr>
-                <!--12th-->
-                <tr>
-                    <td>12</td>
-                    <td></td>
-                    <td>ConBud</td>
-                    <td>WB</td>
-                    <td>JMart</td>
-                    <td>Bender</td>
-                </tr>
-                <!--13th-->
-                <tr>
-                    <td>13</td>
-                    <td></td>
-                    <td>Clegg</td>
-                    <td>Cheddar</td>
-                    <td>Lambo</td>
-                    <td>Knoll</td>
-                </tr>
-                <!--14th-->
-                <tr>
-                    <td>14</td>
-                    <td></td>
-                    <td>Cheddar</td>
-                    <td>JMart</td>
-                    <td>Berg</td>
-                    <td>SB</td>
-                </tr>
-                <!--15th-->
-                <tr>
-                    <td>15</td>
-                    <td></td>
-                    <td></td>
-                    <td>BNice</td>
-                    <td>Bender</td>
-                    <td>Berg</td>
-                </tr>
-                <!--16th-->
-                <tr>
-                    <td>16</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>WB</td>
-                </tr>
-                <!--17th-->
-                <tr>
-                    <td>17</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Lambo</td>
-                </tr>
-                <!--Stub-->
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'Teams')" id="defaultOpen">Teams</button>
+                <button class="tablinks" onclick="openCity(event, 'Selection Order')">Selection Order</button>
+                <button class="tablinks" onclick="openCity(event, 'Scoring')">Scoring</button>
+            </div>
+            
+            <!-- Tab content -->
+            <div id="Teams" class="tabcontent">
+                <table>
+                    <tr>
+                        <td class="teams-list">
+                            <p class="region">
+                                <b>AFC (Asia)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">Australia</span></li>
+                                <li><span class="flagicon">Iran</span></li>
+                                <li><span class="flagicon">Iraq</span></li>
+                                <li><span class="flagicon">Japan</span></li>
+                                <li><span class="flagicon">Jordan</span></li>
+                                <li><span class="flagicon">Qatar</span></li>
+                                <li><span class="flagicon">Saudi Arabia</span></li>
+                                <li><span class="flagicon">South Korea</span></li>
+                                <li><span class="flagicon">Uzbekistan</span></li>
+                            </ul>
+                            <p class="region">
+                                <b>CAF (Africa)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">Algeria</span></li>
+                                <li><span class="flagicon">Cape Verde</span></li>
+                                <li><span class="flagicon">DR Congo</span></li>
+                                <li><span class="flagicon">Egypt</span></li>
+                                <li><span class="flagicon">Ghana</span></li>
+                                <li><span class="flagicon">Ivory Coast</span></li>
+                                <li><span class="flagicon">Morocco</span></li>
+                                <li><span class="flagicon">Senegal</span></li>
+                                <li><span class="flagicon">South Africa</span></li>
+                                <li><span class="flagicon">Tunisia</span></li>
+                            </ul>
+                        </td>
+                        <td class="teams-list">
+                            <p class="region">
+                                <b>CONCACAF (North America)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">Canada</span></li>
+                                <li><span class="flagicon">Curaçao</span></li>
+                                <li><span class="flagicon">Haiti</span></li>
+                                <li><span class="flagicon">Mexico</span></li>
+                                <li><span class="flagicon">Panama</span></li>
+                                <li><span class="flagicon">United States</span></li>
+                            </ul>
+                            <p class="region">
+                                <b>CONMEBOL (South America)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">Argentina</span></li>
+                                <li><span class="flagicon">Brazil</span></li>
+                                <li><span class="flagicon">Colombia</span></li>
+                                <li><span class="flagicon">Ecuador</span></li>
+                                <li><span class="flagicon">Paraguay</span></li>
+                                <li><span class="flagicon">Uruguay</span></li>
+                            </ul>
+                            <p class="region">
+                                <b>OFC (Oceania)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">New Zealand</span></li>
+                            </ul>
+                        </td>
+                        <td class="teams-list">
+                            <p class="region">
+                                <b>UEFA (Europe)</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li><span class="flagicon">Austria</span></li>
+                                <li><span class="flagicon">Belgium</span></li>
+                                <li><span class="flagicon">Bosnia and Herzegovina</span></li>
+                                <li><span class="flagicon">Croatia</span></li>
+                                <li><span class="flagicon">Czech Republic</span></li>
+                                <li><span class="flagicon">England</span></li>
+                                <li><span class="flagicon">France</span></li>
+                                <li><span class="flagicon">Germany</span></li>
+                                <li><span class="flagicon">Netherlands</span></li>
+                                <li><span class="flagicon">Norway</span></li>
+                                <li><span class="flagicon">Portugal</span></li>
+                                <li><span class="flagicon">Scotland</span></li>
+                                <li><span class="flagicon">Spain</span></li>
+                                <li><span class="flagicon">Sweden</span></li>
+                                <li><span class="flagicon">Switzerland</span></li>
+                                <li><span class="flagicon">Turkey</span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="Selection Order" class="tabcontent">
+                <table>
+                    <tr>
+                        <td>1st & 36th:</td>
+                        <td><b>Lambo</b></td>
+                    </tr>
+                    <tr>
+                        <td>2nd & 35th:</td>
+                        <td><b>WB</b></td>
+                    </tr>
+                    <tr>
+                        <td>3rd & 34th:</td>
+                        <td><b>Berg</b></td>
+                    </tr>
+                    <tr>
+                        <td>4th & 33rd:</td>
+                        <td><b>SB</b></td>
+                    </tr>
+                    <tr>
+                        <td>5th & 32nd:</td>
+                        <td><b>Knoll</b></td>
+                    </tr>
+                    <tr>
+                        <td>6th & 31st:</td>
+                        <td><b>Bender</b></td>
+                    </tr>
+                    <tr>
+                        <td>7th & 30th:</td>
+                        <td><b>BNice</b></td>
+                    </tr>
+                    <tr>
+                        <td>8th & 29th:</td>
+                        <td><b>Machete</b></td>
+                    </tr>
+                    <tr>
+                        <td>9th & 28th:</td>
+                        <td><b>Cheddar</b></td>
+                    </tr>
+                    <tr>
+                        <td>10th & 27th:</td>
+                        <td><b>Mone</b></td>
+                    </tr>
+                    <tr>
+                        <td>11th & 26th:</td>
+                        <td><b>OB</b></td>
+                    </tr>
+                    <tr>
+                        <td>12th & 25th:</td>
+                        <td><b>Tone Loc</b></td>
+                    </tr>
+                    <tr>
+                        <td>13th & 24th:</td>
+                        <td><b>ConBud</b></td>
+                    </tr>
+                    <tr>
+                        <td>14th & 23rd:</td>
+                        <td><b>JMart</b></td>
+                    </tr>
+                    <tr>
+                        <td>15th & 22nd:</td>
+                        <td><b>MacFace</b></td>
+                    </tr>
+                    <tr>
+                        <td>16th & 21st:</td>
+                        <td><b>Dirt</b></td>
+                    </tr>
+                    <tr>
+                        <td>17th & 20th:</td>
+                        <td><b>Clegg</b></td>
+                    </tr>
+                    <tr>
+                        <td>18th & 19th:</td>
+                        <td><b>Corey</b></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="Scoring" class="tabcontent">
+                <table>
+                    <tr>
+                        <td class="teams-list">
+                            <p class="region">
+                                <b>Group Stage</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li>Win = 2 points</li>
+                                <li>Draw = 1 point</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="teams-list">
+                            <p class="region">
+                                <b>Advancement</b>
+                            </p>
+                            <ul class="no-bullet-list">
+                                <li>Reach Round of 32 = 3 points</li>
+                                <li>Reach Round of 16 = 4 points</li>
+                                <li>Reach Quarterfinal = 5 points</li>
+                                <li>Reach Semifinal = 6 points</li>
+                                <li>Reach Final = 7 points</li>
+                                <li>Win World Cup = 8 points</li>
+                            </ul>
+                        </td>
+                        
+                    </tr>
+                </table>
+                <span><b>Total score for an owner is the sum of both nations.</b></span>
+            </div>
         </div>
     </body>
+    <script src="assets/js/fifa.js"></script>
 </html>
