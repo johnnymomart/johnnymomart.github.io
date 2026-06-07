@@ -83,6 +83,11 @@ body {
     padding-right: 5px;
 }
 
+.unavailable {
+    opacity: .6;
+    text-decoration: line-through;
+}
+
 @media (min-width: 320px) { 
     :root {
         --tablePadding: .2rem;
